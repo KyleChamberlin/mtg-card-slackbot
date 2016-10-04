@@ -39,6 +39,7 @@ def card_urls(name, foil = false)
   urls.reject(&:nil?)
 end
 
+#finds the lowest price for a given card
 def low_price(name, foil = false)
   prices = card_urls(name, foil).map do |url|
     page = Nokogiri::HTML(Net::HTTP.get(URI.parse(url)))
